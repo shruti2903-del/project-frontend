@@ -6,10 +6,10 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
           <a className="navbar-brand" href="/">
-            {/* <img
+             <img
               src="/assets/images/auth/logo.webp"
               style={{ maxWidth: "80%" }}
-            /> */} HELLO
+            />  
           </a>
           <button
             className="navbar-toggler"
@@ -24,6 +24,20 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 ms-auto mb-lg-0">
+             
+              <li className="nav-item">
+                <a
+                  className="nav-link active fw-semibold fs-5"
+                  aria-current="page"
+                  href="/partnerwithus"
+                > Partner with Us
+                  {/* <img
+                    src="/assets/images/auth/housedoor.svg"
+                    className="mx-1"
+                    style={{ height: "30px", width: "30px" }}
+                  /> */}
+                </a>
+              </li>
               <li className="nav-item">
                 <a
                   className="nav-link active  "
@@ -32,19 +46,6 @@ function Navbar() {
                 >
                   <img
                     src="/assets/images/auth/person.svg"
-                    className="mx-1"
-                    style={{ height: "30px", width: "30px" }}
-                  />
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/login/vendor"
-                >
-                  <img
-                    src="/assets/images/auth/housedoor.svg"
                     className="mx-1"
                     style={{ height: "30px", width: "30px" }}
                   />

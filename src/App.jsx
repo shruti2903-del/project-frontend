@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./index.css";
 import Login from "./Pages/Login";
@@ -17,9 +17,23 @@ import VendorHome from "./Pages/Vendor/VendorHome";
 import VendorRegister from "./Pages/Vendor/VendorRegister";
 import Vendorlogin from "./Pages/Vendor/Vendorlogin";
 import UserHome from "./Pages/User/UserHome";
-import UserDash from "./Pages/Dashboard/UserDash";
 import ExistingGroup from "./Pages/Community/ExistingGroup";
 import Restauranthome from "./Pages/Restaurant/Restauranthome";
+import Notification from "./Pages/User/Notification";
+import Order from "./Pages/User/Order";
+import Rewards from "./Pages/User/Rewards";
+import Eventhome from "./Pages/Events/Eventhome";
+import RestaurantRegister from "./Pages/Restaurant/RestaurantRegister";
+import DocumentUpload from "./Pages/Restaurant/DocumentUpload";
+import PaymentPage from "./Pages/Restaurant/PaymentPage";
+import RestaurantLogin from "./Pages/Restaurant/RestaurantLogin";
+import Partnerwithus from "./Pages/Partnerwithus";
+import AllRestaurant from "./Pages/Restaurant/AllRestaurant";
+import UserDocumentUpload from "./Pages/Restaurant/UserDocumentUpload";
+import UserDash from "./Pages/Dashboard/UserDash";
+import AddRestaurant from "./Pages/Dashboard/AddRestaurant";
+import AllBusiness from "./Pages/Dashboard/AllBusiness";
+import BusinessEdit from "./Pages/Dashboard/BusinessEdit";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
@@ -41,15 +55,15 @@ function App() {
           <Route path="/otpverify" element={<OtpPage />} />
           <Route path="/login/user" element={<UserLogin />} />
           <Route path="/VendorRegister" element={<VendorRegister />} />
-          <Route path="/login/vendor" element={<Vendorlogin />} />
+          <Route path="/Vendorlogin" element={<Vendorlogin />} />
           <Route path="/error" element={<PageNotFound />} />
+          <Route path="/restaurantregister" element={<RestaurantRegister />} />
+          <Route path="/documentupload" element={<DocumentUpload />} />
+          <Route path="/partnerwithus" element={<Partnerwithus />} />
+          <Route path="/paymentpage" element={<PaymentPage />} />
+          <Route path="/userdocumentupload" element={<UserDocumentUpload />} />
 
-          <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/userhome" element={<UserHome />} />
-          <Route path="/restauranthome" element={<Restauranthome />} />
-          <Route path="existingGroup" element={<ExistingGroup />} />
-
-
+          <Route path="/restaurantlogin" element={<RestaurantLogin />} />
 
           {/* Protected Routes */}
           <Route
@@ -58,26 +72,31 @@ function App() {
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 {role === "user" ? (
                   <Routes>
-                    {/* <Route path="" element={<UserHome />} /> */}
+                    <Route path="" element={<UserHome />} />
                     <Route path="communityhome" element={<CommunityHome />} />
-                    {/* <Route path="editprofile" element={<EditProfile />} /> */}
-                    {/* <Route path="existingGroup" element={<ExistingGroup />} /> */}
-                    <Route path="UserDash" element={<UserDash />} />
+                    <Route path="editprofile" element={<EditProfile />} />
+                    <Route path="existingGroup" element={<ExistingGroup />} />
+                    <Route path="vendorhome" element={<VendorHome />} />
+                    <Route path="notification" element={<Notification />} />
+                    <Route path="order" element={<Order />} />
+                    <Route path="rewards" element={<Rewards />} />
+                    <Route path="eventhome" element={<Eventhome />} />
                   </Routes>
-                ) : (
+                ) : role === "restaurant" ? ( 
                   <Routes>
-                    <Route index element={<VendorHome />} />
+                    <Route path="userdash" element={<UserDash />} />
+                    <Route path="allrestaurant" element={<AllRestaurant />} />
+                    <Route path="addrestaurant" element={<AddRestaurant />} />
+                    <Route path="allbusiness" element={<AllBusiness />} />
+                    <Route path="editbusiness" element={<BusinessEdit />} />
                   </Routes>
-                )}
+                ):null}
               </ProtectedRoute>
             }
           />
         </Routes>
         <Footer />
       </>
-    
-   
-
     </>
   );
 }

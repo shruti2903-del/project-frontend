@@ -80,3 +80,15 @@ body {
   transform: scale(1.1);
   transition: transform 0.3s ease-in-out;
 }
+
+.content-container {
+  transition: margin-left 0.3s ease;
+}
+
+.w-80 {
+  margin-left: 250px;
+}
+
+.w-100 {
+  margin-left: 0;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import LoggedInUserNavbar from '../components/LoggedInUserNavbar';
+import RestaurantSearchBox from '../components/RestaurantSearchBox';
 
 function HomePage() {
     const navigate = useNavigate()
@@ -14,13 +15,13 @@ function HomePage() {
 
     const handleSearch = () => {
         if (category === "Restaurant") {
-            window.location.href = "/restauranthome";
+            window.location.href = "/loggedin/restauranthome";
         } else if (category === "Vendor") {
-            window.location.href = "/vendor";
+            window.location.href = "/loggedin/vendorhome";
         } else if (category === "Event") {
             window.location.href = "/event";
         } else if (category === "Community") {
-            window.location.href = "/existingGroup";
+            window.location.href = "/loggedin/existingGroup";
         } else {
             alert("Please select a category before searching.");
         }
@@ -33,91 +34,27 @@ function HomePage() {
     return (
         <>
             {/* Navbar */}
-            <LoggedInUserNavbar />
+            {localStorage.getItem("token") ? <LoggedInUserNavbar /> : <Navbar />}
     
             {/* Main Container */}
             <div className="container">
-                {/* Title Section */}
-                <div className="row d-flex justify-content-center align-items-center">
-                    <div className='row mb-5'>
-                    <div className="col-md-12 col-sm-12">
-                        <h1 className="fs-1 fw-bold mb-5 mt-5 text-center">
-                            Find and book the best for any event imaginable
-                        </h1>
+                {/* <div className='row rounded shadow d-flex justify-content-center text-center position-relative'>
+                    <div className='col-md-6 col-sm-12 shadow p-4 mb-5 rounded' >
+                        <div className='row'>
+                        <div className='col-md-6 col-sm-12'>
+                        Restaurant
                     </div>
+                    <div className='col-md-6 col-sm-12'>
+                        Restaurant
                     </div>
+                </div>
+                </div>
+                </div> */}
+
+                
     
-                {/* Search Box Section */}
-                <div className="row mt-5">
-                    <div className="col-md-12 col-sm-12">
-                        <section className="search-sec rounded-5 bg-white p-4 shadow-lg">
-                            <div className="container">
-                                <form action="#" method="post" noValidate="noValidate">
-                                    <div className="row">
-                                        <div className="col-lg-12">
-                                            <div className="row">
-                                                
-                                                <div className="col-lg-4 col-md-4 col-sm-12 ">
-                                                    <input
-                                                        type="text"
-                                                        className="form-control search-slt"
-                                                        placeholder="Enter Location"
-                                                    />
-                                                </div>
-                                                <div className="col-lg-4 col-md-4 col-sm-12 ">
-                                                    <select className="form-control search-slt" id="exampleFormControlSelect1" onChange={(e) => setCategory(e.target.value)}>
-                                                        <option value='' disabled selected >--Select Category--</option>
-                                                        <option value='Restaurant'>Restaurant</option>
-                                                        <option value='Vendor'>Vendor</option>
-                                                        <option value='Event'>Event</option>
-                                                        <option value='Community'>Join Community</option>
-                                                    </select>
-                                                </div>
-                                                <div className="col-lg-4 col-md-4 col-sm-12 ">
-                                                    <button type="button" className="btn btn-primary wrn-btn fw-semibold fs-5" onClick={handleSearch}>
-                                                        Search
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                </div>
-            
-            {/* Card Section */}
-            <div className='row mt-3 d-flex justify-content-center text-center'>
-                <div className='col col-lg-3  col-sm-6'>
-            <div className="card rounded-5 shadow-lg hover-scale" style={{width: '18rem', cursor:'pointer'}}  onClick={() => window.location.href = "/restauranthome"}>
-  <img src="/assets/images/auth/restaurant.avif" className="card-img-top rounded-top-5" alt="..."/>
-  <div className="card-body">
-    <p className="card-text fw-semibold text-secondary fs-5">Restaurant</p>
-  </div>
-</div>
-</div>
-<div className='col col-lg-3 col-sm-6'>
-            <div className="card rounded-5 shadow-lg hover-scale" style={{width: '18rem',cursor:'pointer'}}>
-  <img src="/assets/images/auth/venue.avif" className="card-img-top rounded-top-5" alt="..."/>
-  <div className="card-body">
-    <p className="card-text fw-semibold text-secondary fs-5">Venue</p>
-  </div>
-</div>
-</div>
-<div className='col col-lg-3 col-sm-6'>
-            <div className="card rounded-5 shadow-lg hover-scale" style={{width: '18rem',cursor:'pointer'}}>
-  <img src="/assets/images/auth/events.jpg" className="card-img-top rounded-top-5" alt="..."/>
-  <div className="card-body">
-    <p className="card-text fw-semibold text-secondary fs-5">Events</p>
-  </div>
-</div>
-</div>
-</div>
-<hr className=' m-5'/>
                 {/* Carousel Section */}
-                <div className="row">
+                <div className="row mt-5">
                     <h2 className="text-center fw-semibold fs-1">Discover top event spaces across India</h2>
                     <div id="carouselExampleControls" className="carousel mt-4 slide" data-bs-ride="carousel">
                         <div className="carousel-inner">
@@ -169,7 +106,8 @@ function HomePage() {
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div><hr className='mt-5'/>
+                </div>
+                <hr className='mt-5'/>
     
                 {/* Brand Logos Section */}
                 <h3 className="mt-5 text-center fw-semibold fs-1">Global brands and 1M+ users trust Tagvenue</h3>
@@ -196,7 +134,7 @@ function HomePage() {
     
                 {/* Venue Listing Section */}
                 <div className="row d-flex justify-content-center mt-5">
-                    <div className="col-md-10 col-sm-12 shadow p-5 m-3 rounded py-5" id="content">
+                    <div className="col-md-10 col-sm-12 shadow p-5 mb-3 rounded py-5" id="content">
                         <div className="row my-5">
                             <div className="col-md-6 col-sm-12">
                                 <img src="/assets/images/auth/list-your-venue.svg" alt="List your venue" />
@@ -221,6 +159,7 @@ function HomePage() {
             </div>
         </>
     );
+    
     
     
     

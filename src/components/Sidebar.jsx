@@ -1,58 +1,4 @@
-// import React from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'font-awesome/css/font-awesome.min.css';
-// import { useNavigate } from "react-router-dom";
 
-
-// export default function Sidebar() {
-//   const navigate = useNavigate();
-//   function logout() {
-
-//     localStorage.clear();
-//     document.querySelector('.btn-close').click();
-//     if (!localStorage.getItem('token')) {
-//         navigate('/loggedin/');
-//     }
-//     else {
-//         navigate('/login');
-//     }
-
-// }
-//   return (
-//     <>
-//       <div className="d-flex flex-column bg-light vh-100 p-3">
-//         <div className="mb-3">
-//           <a className="fw-bold fs-5 d-block text-black text-decoration-none">Hello!!</a>
-//         </div>
-//         <ul className="nav flex-column">
-//           <li className="nav-item mb-2">
-//             <a className="nav-link text-black d-flex align-items-center" href="/loggedin/">
-//               <i className="fa fa-th-large me-2"></i> Home
-//               {/* <span className="badge bg-danger rounded-pill ms-auto">new</span> */}
-//             </a>
-//           </li>
-//           <li className="nav-item mb-2">
-//             <a className="nav-link text-dark d-flex align-items-center" href="/loggedin/communityhome">
-//               <i className="fa fa-comments me-2"></i> Join Community
-//             </a>
-//           </li>
-//           {/* <li className="nav-item">
-//             <a className="nav-link text-dark d-flex align-items-center">
-//               <i className="fa fa-sticky-note me-2"></i> Bootstrap
-//             </a>
-//           </li> */}
-//         </ul>
-//         {/* <div className=" mt-auto text-center text-muted small">Sidebar Footer</div> */}
-//         <div className=' shadow-sm mt-auto end-0'>
-//                         <button className='btn btn-danger w-100' onClick={logout} >Log out</button>
-//                     </div>
-//       </div>
-
-
-//     </>
-//   );
-
-// }
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
@@ -77,14 +23,17 @@ export default function Sidebar() {
       <div className="d-none d-md-block bg-light vh-100 p-3">
         <div className="mb-3">
           <a className="fw-bold fs-5 d-block text-black text-decoration-none">
-            Hello!!
-          </a>
+            Hello!! 
+            </a>
+
         </div>
+
         <ul className="nav flex-column">
+       
           <li className="nav-item mb-2">
             <a
               className="nav-link text-black d-flex align-items-center"
-              href="/userhome"
+              href="/loggedin/"
             >
               <i className="fa-solid fa-house me-2"></i> Home
             </a>
@@ -92,7 +41,15 @@ export default function Sidebar() {
           <li className="nav-item mb-2">
             <a
               className="nav-link text-black d-flex align-items-center"
-              href="/userhome"
+              href="/loggedin/editprofile"
+            >
+              <i className="fa-solid fa-user me-2"></i> Profile
+            </a>
+          </li>
+          <li className="nav-item mb-2">
+            <a
+              className="nav-link text-black d-flex align-items-center"
+              href="/loggedin/restauranthome"
             >
               <i className="fa-solid fa-burger me-2"></i> Restaurant
             </a>
@@ -100,7 +57,7 @@ export default function Sidebar() {
           <li className="nav-item mb-2">
             <a
               className="nav-link text-black d-flex align-items-center"
-              href="/userhome"
+              href="/loggedin/vendorhome"
             >
               <i className="fa fa-th-large me-2"></i> Vendor
             </a>
@@ -108,7 +65,7 @@ export default function Sidebar() {
           <li className="nav-item mb-2">
             <a
               className="nav-link text-black d-flex align-items-center"
-              href="/userhome"
+              href="/loggedin/eventhome"
             >
               <i className="fa-solid fa-calendar-check me-2"></i> Event
             </a>
@@ -116,13 +73,37 @@ export default function Sidebar() {
           <li className="nav-item mb-2">
             <a
               className="nav-link text-dark d-flex align-items-center"
-              href="/loggedin/communityhome"
+              href="/loggedin/existingGroup"
             >
               <i className="fa fa-comments me-2"></i> Join Community
             </a>
           </li>
+          <li className="nav-item mb-2">
+            <a
+              className="nav-link text-dark d-flex align-items-center"
+              href="/loggedin/notification"
+            >
+              <i className="fa-solid fa-bell me-2"></i> Notification
+            </a>
+          </li>
+          <li className="nav-item mb-2">
+            <a
+              className="nav-link text-dark d-flex align-items-center"
+              href="/loggedin/order"
+            >
+              <i className="fa-solid fa-box-open me-2"></i> Your Order
+            </a>
+          </li>
+          <li className="nav-item mb-2">
+            <a
+              className="nav-link text-dark d-flex align-items-center"
+              href="/loggedin/rewards"
+            >
+              <i className="fa-solid fa-medal me-2"></i> Rewards
+            </a>
+          </li>
         </ul>
-        <div className="shadow-sm mt-auto">
+        <div className="shadow-sm mb-0">
           <button className="btn btn-danger w-100" onClick={logout}>
             Log out
           </button>

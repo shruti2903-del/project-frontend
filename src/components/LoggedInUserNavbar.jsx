@@ -25,9 +25,13 @@ export default function LoggedInUserNavbar() {
         <>
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid  ">
-                    <a className="navbar-brand fw-bold fs-3 text-decoration-none" href="/userhome">
-                        {/* <img src='/assets/images/auth/logo.webp' style={{ maxWidth: '80%' }} /> */} HELLO
+                    <a className="navbar-brand fw-bold fs-3 text-decoration-none" href="/loggedin/">
+                        <img src='/assets/images/auth/logo.webp' style={{ maxWidth: '80%' }} /> 
                     </a>
+                    <a className="navbar-brand fw-bold fs-5 text-decoration-none" href="/loggedin/allrestaurant">
+                          Restaurant
+                    </a>
+                    
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -62,15 +66,15 @@ export default function LoggedInUserNavbar() {
                                 Home</a>
                         </div>
                         <div className='row shadow-sm p-1 mb-3'>
-                            <a className='text-decoration-none  text-black  text-start fw-1' href='#'>
+                            <a className='text-decoration-none  text-black  text-start fw-1' href='/loggedin/notification'>
                                 <img src='/assets/images/auth/notification.png' className='me-2' style={{ height: '32px', width: '32px' }} />Notifications</a>
                         </div>
                         <div className='row shadow-sm p-1 mb-3'>
-                            <a className='text-decoration-none text-black  text-start fw-1 ' href='#'>
+                            <a className='text-decoration-none text-black  text-start fw-1 ' href='/loggedin/order'>
                                 <img src='/assets/images/auth/orders.png' className='me-2' style={{ height: '32px', width: '32px' }} />Your Orders</a>
                         </div>
                         <div className='row shadow-sm p-1 mb-3'>
-                            <a className='text-decoration-none text-black  text-start fw-1 ' href='#'>
+                            <a className='text-decoration-none text-black  text-start fw-1 ' href='/loggedin/rewards'>
                                 <img src='/assets/images/auth/rewards.png' className='me-2' style={{ height: '32px', width: '32px' }} />Rewards</a>
                         </div><div className='row shadow-sm p-1 mb-3'>
                             <a className='text-decoration-none  text-black text-start fw-1 ' href='/loggedin/communityhome'>

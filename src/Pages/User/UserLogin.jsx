@@ -27,16 +27,17 @@ export default function UserLogin() {
         localStorage.setItem("id", response.data.data[0].user._id)
         localStorage.setItem("role", response.data.data[0].user.role_name.toLowerCase())
         console.log(localStorage.getItem("token"));
-        if (response.data.data[0].user.role_name.toLowerCase() === "user") {
+        if (response.data.data[0].user.role_name.toLowerCase() === "restaurant") {
 
-          navigate('/loggedin/*')
+          navigate('/loggedin/userdash')
 
-        } else if (response.data.data[0].user.role_name.toLowerCase() === "vendor") {
-          navigate('/VendorHome')
+        } 
+        // else if (response.data.data[0].user.role_name.toLowerCase() === "user") {
+        //   navigate('/loggedin/')
 
-        }
+        // }
         else {
-          navigate('/login')
+          navigate('/loggedin/')
         }
 
       }

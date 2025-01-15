@@ -1,16 +1,18 @@
 import React from "react";
 
-export default function Input(props) {
+export default function Input({type, name, ...props}) {
   return (
     <>
       <div className="input-group mb-3">
         <input
-          type={props.type}
+          type={type}
           placeholder={props.placeholder}
-          name={props.name}
+          name={name}
           id={props.id}
           className="form-control"
-          required
+          {...props}
+
+         
         ></input>
       </div>
     </>
